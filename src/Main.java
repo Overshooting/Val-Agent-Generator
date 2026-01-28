@@ -4,6 +4,9 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class Main {
+    private static final String[] AGENTS = {"Astra", "Breach", "Brimstone", "Chamber", "Clove", "Cypher",
+            "Deadlock", "Fade", "Gekko", "Harbor", "Iso", "Jett", "KA/YO", "KillJoy", "Neon", "Omen",
+            "Phoenix", "Raze", "Reyna", "Sage", "Skye", "Sova", "Tejo", "Veto", "Viper", "Vyse", "Waylay", "Yoru"};
 
     public static void main(String[] args) {
         SwingUtilities.invokeLater(Main::createUI);
@@ -18,7 +21,7 @@ public class Main {
         ActionListener buttonListener = new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                label.setText(AgentGenerator.generateAgent());
+                label.setText(generateAgent());
             }
         };
 
@@ -38,6 +41,10 @@ public class Main {
         frame.add(label, BorderLayout.CENTER);
 
         frame.setVisible(true);
+    }
+
+    public static String generateAgent() {
+        return AGENTS[(int)(Math.random()*28)];
     }
 
 }
